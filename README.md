@@ -8,9 +8,9 @@
 ## examples
 ```bash
 kevindeMacBook-Air:src kevin$ kubectl info get pod -n namespace
-             NAME                        READY STATUS  RESTARTS         AGE         Containers      CPU       Memory
-         srv-pot-worker-75b6b-hcvz4           1/1  Running    1     3406h31m51.048323s      1        50m/1      1Gi/2Gi
-         srv-pollution-fker6b-rw9gl           1/1  Running    1     2930h48m36.048334s      1        50m/1      1Gi/2Gi
+     NAME                     READY   STATUS  RESTARTS         AGE         Containers   CPU        Memory
+srv-pot-worker-75b6b-hcvz4    1/1    Running    1     3406h31m51.048323s      1        50m/1      1Gi/2Gi
+srv-pollution-fker6b-rw9gl    1/1    Running    1     2930h48m36.048334s      1        50m/1      1Gi/2Gi
 
 
 kevindeMacBook-Air:src kevin$ kubectl info get pod -n namespaces -o json
