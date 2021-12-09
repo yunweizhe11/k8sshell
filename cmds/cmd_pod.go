@@ -63,7 +63,7 @@ var podGetCmd = cobra.Command{
 			fmt.Println("Err:", err)
 			return
 		}
-		table, err = gotable.Create("NAME", "READY", "STATUS", "RESTARTS", "AGE", "Containers", "CPU", "Memory") //table title
+		table, err = gotable.Create("NAME", "READY", "STATUS", "RESTARTS", "AGE", "IP", "NODE", "Containers", "CPU", "Memory") //table title
 		for _, pod := range podList.Items {
 			// containerAllCount := len(pod.Status.ContainerStatuses)
 			containerAllCount := len(pod.Spec.Containers) //获取当前pod 容器数量
@@ -73,6 +73,8 @@ var podGetCmd = cobra.Command{
 					containerReadyCount++
 				}
 			}
+			node_ip := pod.Status.HostIP
+			pod_ip := pod.Status.PodIP
 			cpu_requests := ""
 			cpu_limit := ""
 			memory_requests := ""
@@ -100,7 +102,7 @@ var podGetCmd = cobra.Command{
 				return
 			}
 			serviceObject = append(serviceObject, map[string]string{"NAME": pod.Name, "READY": strconv.Itoa(containerReadyCount) + "/" + strconv.Itoa(containerAllCount), "STATUS": string(pod.Status.Phase), "RESTARTS": strconv.Itoa(restartCount),
-				"Containers": strconv.Itoa(Containers), "CPU": cpu_requests + "/" + cpu_limit, "Memory": memory_requests + "/" + memory_limit, "AGE": starttime})
+				"Containers": strconv.Itoa(Containers), "CPU": cpu_requests + "/" + cpu_limit, "Memory": memory_requests + "/" + memory_limit, "AGE": starttime, "IP": pod_ip, "NODE": node_ip})
 		}
 		goPrint(serviceObject, table) //打印数据
 	},
