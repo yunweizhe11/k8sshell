@@ -52,5 +52,7 @@ Use "kubectl-info [command] --help" for more information about a command.
 
 ## Todo
 
+**已实现**
++ [x] 通过GET pod 展示 资源limit
 **后续计划**
 + [ ] 增加 GET service ingress 之间关联关系
