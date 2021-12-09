@@ -6,6 +6,29 @@
 1. 执行 build.sh
   + 拷贝 编译后的二进制到 kubectl 所在目录。
 
+## examples
+```bash
+kevindeMacBook-Air:src kevin$ kubectl info get pod -n namespace
+             NAME                        READY STATUS  RESTARTS         AGE         Containers      CPU       Memory
+         srv-pot-worker-75b6b-hcvz4           1/1  Running    1     3406h31m51.048323s      1        50m/1      1Gi/2Gi
+         srv-pollution-fker6b-rw9gl           1/1  Running    1     2930h48m36.048334s      1        50m/1      1Gi/2Gi
+
+
+kevindeMacBook-Air:src kevin$ kubectl info get pod -n namespaces -o json
+Method `Json` will no longer supported. You can use the `JSON` method instead of `Json` method. This method will be removed in version gotable 5.0.
+[
+       {
+              "AGE": "3406h34m7.638246s",
+              "CPU": "50m/1",
+              "Containers": "1",
+              "Memory": "1Gi/2Gi",
+              "NAME": "srv-potion-f5b6b-hcvz4",
+              "READY": "1/1",
+              "RESTARTS": "1",
+              "STATUS": "Running"
+       }
+]
+```
 ## Usage 
 
 ```bash
